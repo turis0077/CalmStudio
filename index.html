@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meditación y Mindfulness - Encuentra tu paz interior</title>
+    <meta name="description" content="Descubre la paz interior con nuestras clases personalizadas de meditación y mindfulness. Sesiones presenciales y en línea adaptadas a tu ritmo de vida.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧘</text></svg>">
+    <script src="https://unpkg.com/vue@3.5.13/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calm Studio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .header {
+            text-align: center;
+            padding: 0.1rem 1;
+            background-color: #f8f8f8;
+        }
+
+        .logo {
+            margin: 0 auto;
+            font-size: 2rem;
+            letter-spacing: 0.5rem;
+            margin-bottom: 0rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 7rem 2rem;
+            background-image: url("inicio.jpg") ;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: #fff;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        .classes {
+            padding: 4rem 2rem;
+            background-color: #f8f8f8;
+        }
+
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .class-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .class-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            background-color: #fff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            font-weight: 500;
+        }
+
+        .reservation-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .nav {
+            background: #fff;
+            padding: 0.5rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow:  2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        .sao {
+        background-image: url(inicio.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+    <div class="sao">
+        <header class="container mx-auto px-4 py-6">
+            <nav class="flex items-center justify-between">
+                <div class="w-28">
+                    <img src="logo.png" alt="Logo Meditación" class="w-full">
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio">INICIO</a>
+                    <a href="#como-funciona">CONOCE CÓMO FUNCIONA</a>
+                    <a href="#clases">TIPOS DE CLASES</a>
+                    <a href="#reserva">RESERVA TU CUPO</a>
+                </div>
+                <button @click="toggleMenu" class="md:hidden">
+                    <span class="sr-only">Menu</span>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </nav>
+        </header>
+
+        <main class="container mx-auto px-4 mt-16">
+            <section class="max-w-4xl">
+                <h1 class="text-5xl md:text-7xl font-light mb-4" style="color: #fff;">
+                    Paz interior,
+                    <span class="block text-3xl md:text-4xl mt-2" style="color: #fff;">un respiro</span>
+                    <span class="text-4xl md:text-5xl text-purple-300" style="color: #fff;">a la vez</span>
+                </h1>
+                
+                <p style="color: #fff;">
+                    La paz interior es clave para vivir plenamente. Ofrecemos clases
+                    personalizadas de meditación y mindfulness, diseñadas para
+                    adaptarse a tu ritmo de vida. Ya sea de manera presencial o en
+                    línea, nuestro objetivo es ayudarte a reducir el estrés, mejorar tu
+                    bienestar emocional y encontrar equilibrio en cada respiro.
+                </p>
+            </section>
+        </main>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <section id="como-funciona" class="features">
+        <h1 class="logo">CONOCE CÓMO <br> FUNCIONA</h1>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>CLASES 100% VIRTUALES</h3>
+                <p>Las sesiones tienen una duración entre 15 y 30 minutos, para adaptarse a tus necesidades y disponibilidad diaria.</p>
+            </div>
+            <div class="feature-card">
+                <h3>GRUPOS REDUCIDOS O CLASES INDIVIDUALES</h3>
+                <p>Elige entre clases grupales con personas que comparten tus intereses o sesiones individuales totalmente personalizadas.</p>
+            </div>
+            <div class="feature-card">
+                <h3>GUÍAS EXPERTOS</h3>
+                <p>Contamos con instructores certificados en meditación y mindfulness, quienes te guiarán paso a paso para alcanzar un estado de calma y claridad mental.</p>
+            </div>
+            <div class="feature-card">
+                <h3>ACCESO A MATERIALES EXCLUSIVOS</h3>
+                <p>Al inscribirte, recibirás grabaciones de las sesiones, guías prácticas y meditaciones adicionales para seguir practicando por tu cuenta.</p>
+            </div>
+            <div class="feature-card">
+                <h3>DURACIÓN FLEXIBLE</h3>
+                <p>Las sesiones tienen una duración entre 15 y 30 minutos, para adaptarse a tus necesidades y disponibilidad diaria.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="clases" class="classes">
+        <h1 class="logo">TIPOS DE<br> CLASES</h1>
+        <div class="classes-grid">
+            <div class="class-card">
+                <h3>MEDITACIÓN PARA PRINCIPIANTES</h3>
+                <p>Aprende las bases de la meditación con técnicas simples y efectivas.</p>
+                <p>Duración: 20 minutos por sesión.</p>
+            </div>
+            <div class="class-card">
+                <h3>MINDFULNESS DIARIO</h3>
+                <p>Mejora tu enfoque y presencia a lo largo del día. Ideal para personas con agendas ocupadas.</p>
+                <p>Duración: 15 minutos por sesión.</p>
+            </div>
+            <div class="class-card">
+                <h3>RELAJACIÓN PROFUNDA</h3>
+                <p>Sesiones guiadas para aliviar el estrés y promover un sueño reparador.</p>
+                <p>Duración: 30 minutos por sesión.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reserva" class="reservation-form">
+
+        <h1 class="logo">RESERVA TU CUPO</h1>
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div class="form-group">
+                <label for="clase">Clase a reservar:</label>
+                <select id="clase" name="clase" required>
+                    <option value="">Selecciona una clase</option>
+                    <option value="principiantes">Meditación para Principiantes</option>
+                    <option value="mindfulness">Mindfulness Diario</option>
+                    <option value="relajacion">Relajación Profunda</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="fecha">Fecha y hora:</label>
+                <input type="datetime-local" id="fecha" name="fecha" required>
+            </div>
+        </form>
+    </section>
+
+</body>
+</html>
